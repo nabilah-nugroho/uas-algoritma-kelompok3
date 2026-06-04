@@ -23,7 +23,7 @@ void tgerak() {
 
 void simulasiLiteO() {
     warna(10); // warna hijau
-    printf(\n--- Simulasi Lite O ---\n");
+    printf("\n--- Simulasi Lite O ---\n");
     //logika buat animasi Lite O
     warna(7); //balik lagi ke warna default(putih)
 }
