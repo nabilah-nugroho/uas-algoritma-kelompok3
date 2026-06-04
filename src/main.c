@@ -7,7 +7,7 @@ void warna (int warna) {
     SetConsoleTextAttribute(GetStdHandle(STD_OUTPUT_HANDLE), warna);
 }
 
-vod thadiah() {
+void thadiah() {
     warna(11); //warna biru muda
     printf("\n--- Menu tambahkan hadiah ---\n");
     // logika untuk menambahkan thadiah
