@@ -18,7 +18,7 @@ void tgerak() {
     warna(14); //warna kuning
     printf("\n--- Menu tambahkan gerakan ---\n");
     // logika untuk menambahkan tgerak
-    warna(7)//balik lagi ke warna default(putih)
+    warna(7); //balik lagi ke warna default(putih)
 }
 
 void simulasiLiteO() {
