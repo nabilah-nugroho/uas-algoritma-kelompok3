@@ -16,7 +16,7 @@ void thadiah() {
 
 void tgerak() {
     warna(14); //warna kuning
-    print("\n--- Menu tambahkan gerakan ---\n");
+    printf("\n--- Menu tambahkan gerakan ---\n");
     // logika untuk menambahkan tgerak
     warna(7)//balik lagi ke warna default(putih)
 }
