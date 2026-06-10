@@ -82,3 +82,21 @@ void bacaGerak(Gerak data[], int *jumlah) {
     *jumlah = i;
     fclose(fp);
 }
+
+void simpanHadiah(Hadiah data[], int jumlah) {
+    FILE *fp = fopen("data/thadiah.txt", "w");
+    if (fp == NULL) {
+        printf("gabisa membuka thadiah.txt\n");
+        return;
+    }
+
+    for (int i = 0; i < jumlah; i++) {
+        if (data[i].x != -1 && data[i].y != -1) {
+            fprintf(fp, "%d %d %s %d\n", data[i].x, data[i].y, data[i].nama, data[i].skor);
+        }
+    }
+
+    fprintf(fp, "## ## ## ##\n");
+    fclose(fp);
+}
+
