@@ -10,27 +10,26 @@ void wait(float x) {
     while (difftime(current,start) < x);
 }
 
-void simulasiGerak() {
+void simulasi() {
     FILE *f;
-    gerak G;
+    Gerak g;
 
     f = fopen("tgerak.txt", "r");
 
-    if (f != NULL) {
-        while (fscanf(f, "%d %d", &G.x, &G.y) != EOF) {
-
-            system("cls");
-
-            // update posisi O
-            posisiO.x = G.x;
-            posisiO.y = G.y;
-
-            // tampilkan papan
-            tampilPapan();
-
-            wait(1);
-        }
-
-        fclose(f);
+    if (f == NULL) {
+        printf("File tgerak.txt tidak ditemukan!\n");
+        return;
     }
+
+    while (fscanf(f, "%d %d", &g.x, &g.y) != EOF) {
+
+        // posisi O sekarang ada di g.x dan g.y
+
+        printf("Posisi O : (%d,%d)\n", g.x, g.y);
+
+        wait(1);
+    }
+
+    fclose(f);
 }
+
