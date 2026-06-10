@@ -45,7 +45,7 @@ int main() {
                 thadiah();
                 break;
             case 2:
-                tGerak();
+                tgerak();
                 break;
             case 3:
                 simulasiLiteO();
