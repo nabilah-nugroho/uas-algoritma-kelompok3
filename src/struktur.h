@@ -2,7 +2,6 @@
 #ifndef STRUKTUR_H
 #define STRUKTUR_H
 
-
 // struct data hadiah
 typedef struct {
     int x;
