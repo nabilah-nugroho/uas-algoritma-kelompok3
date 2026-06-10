@@ -33,3 +33,19 @@ void simulasi() {
     fclose(f);
 }
 
+while (fscanf(f, "%d %d", &g.x, &g.y) != EOF) {
+
+    system("cls");      // No. 3
+
+    // update posisi O
+    xO = g.x;
+    yO = g.y;
+
+    // cek apakah ada hadiah yang dimakan
+    cekHadiah(xO, yO);
+
+    // cetak papan terbaru
+    cetakPapan();
+
+    wait(1);            // No. 1
+}
