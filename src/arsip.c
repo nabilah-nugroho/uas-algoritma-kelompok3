@@ -59,30 +59,6 @@ void bacaGerak(Gerak data[], int *jumlah) {
     fclose(fp);  // Tutup file
 }
 
-void bacaGerak(Gerak data[], int *jumlah) {
-    FILE *fp = fopen("data/tgerak.txt", "r");
-    if (fp == NULL) {
-        *jumlah = 0;
-        return;
-    }
-
-    char teks[20];
-    int i = 0;
-
-    while (fscanf(fp, "%s", teks) != EOF) {
-        if (strcmp(teks, "##") == 0) {
-            break;
-        }
-
-        data[i].x = atoi(teks);
-        fscanf(fp, "%d", &data[i].y);
-        i++;
-    }
-
-    *jumlah = i;
-    fclose(fp);
-}
-
 void simpanHadiah(Hadiah data[], int jumlah) {
     FILE *fp = fopen("data/thadiah.txt", "w");
     if (fp == NULL) {
@@ -135,5 +111,32 @@ void isiHadiah(Hadiah data[], int *jumlah) {
         simpanHadiah(data, *jumlah);
         printf("Data berhasil disimpan!\n");
     }
+}
+
+void isiGerak() {
+    FILE *fp = fopen("data/tgerak.txt", "w");
+    if (fp == NULL) {
+        printf("Gagal membuka file tgerak.txt\n");
+        return;
+    }
+
+    int n, x, y;
+    printf("Berapa langkah koordinat jalan O yang mau diinput? ");
+    scanf("%d", &n);
+
+    for (int i = 0; i < n; i++) {
+        printf("Masukkan langkah ke-%d (format: x y): ", i + 1);
+        scanf("%d %d", &x, &y);
+        
+        if (x >= lebarPapan || y >= panjangPapan || x < 0 || y < 0) {
+            printf("Peringatan: Koordinat di luar batas papan!\n");
+        }
+        
+        fprintf(fp, "%d %d\n", x, y);
+    }
+
+    fprintf(fp, "## ##\n");
+    fclose(fp);
+    printf("Rute langkah O berhasil disimpan!\n");
 }
 
