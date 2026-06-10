@@ -21,4 +21,8 @@ extern int skorTotal;       //menampung skor si O selama simulasi
 extern int panjangPapan;    //input tinggi papan dari user
 extern int lebarPapan;      //input lebar papan dari user
 
+int lebihBesar(Hadiah a, Hadiah b)
+
+void sortHadiah(Hadiah data[], int jumlah)
+
 #endif
