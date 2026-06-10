@@ -9,3 +9,4 @@ void wait(float x) {
         time(&current);
     while (difftime(current,start) < x);
 }
+
