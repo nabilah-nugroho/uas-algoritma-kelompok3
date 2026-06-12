@@ -2,7 +2,6 @@
 #ifndef STRUKTUR_H
 #define STRUKTUR_H
 
-
 // struct data hadiah
 typedef struct {
     int x;
@@ -20,5 +19,7 @@ typedef struct {
 extern int skorTotal;       //menampung skor si O selama simulasi
 extern int panjangPapan;    //input tinggi papan dari user
 extern int lebarPapan;      //input lebar papan dari user
+extern int xO;
+extern int yO;
 
 #endif
