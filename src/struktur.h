@@ -19,7 +19,7 @@ typedef struct {
 extern int skorTotal;       //menampung skor si O selama simulasi
 extern int panjangPapan;    //input tinggi papan dari user
 extern int lebarPapan;      //input lebar papan dari user
-//nama fungsi fungsi
-//void bacaHadiah(Hadiah data[], int *jumlah)  //buat baca hadiah
+extern int xO;
+extern int yO;
 
 #endif
