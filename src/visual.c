@@ -12,7 +12,34 @@ int panjangint(int n) {
     while (n >= 10) {n /= 10; digit++;} //selama angka lebih dari 10 buang digit terakhir dan tambah jumlah digit
     return digit;
 }
+//fungsi untuk menampilkan nama dan skor hadiah pada papan
+void labelhadiah(char papan[], int posisi, const Hadiah *h) {
+    int lebardalam = lebarPapan - 2;
+    int kolom = posisi;
+    int i = 0;
+    //tulis nama hadiah mulai dari posisi x. berhenti jika nama sudah habis atau sudah menyentuh tepi papan
+    while (h->nama[i] != '\0' && kolom < lebardalam) { 
+        papan[kolom] = h->nama[i]; 
+        kolom++;
+        i++;
+    }
+    //tampilkan skor hadiah setelah nama
+    int skor = h->skor;
+    int jumlahdigit = panjangint(skor);
+    //buat buffer untuk menyimpan digit skor
+    char bufferdigit[12];
+    for (int d = jumlahdigit - 1; d >= 0; d--) {
+        bufferdigit[d] = '0' + (skor % 10);
+        skor /= 10;
+    }
+    //tampilkan skor hadiah setelah nama
+    for (int d = 0; d < jumlahdigit && kolom < lebardalam; d++) {
+        papan[kolom] = bufferdigit[d];
+        kolom++;
+    }
+}
 
+//fungsi untuk menggambar papan dengan hadiah dan posisi O
 void gambarpapan(const Hadiah hadiah[], int jumlahhadiah, int ox, int oy) {
     int lebardalam = lebarPapan - 2;  //untuk jarak didalam papan
 //bingkai atas
