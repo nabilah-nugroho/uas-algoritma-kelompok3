@@ -1,7 +1,7 @@
 #include <struktur.h>
 
 int lebihBesar(Hadiah a, Hadiah b)
-{
+{ 
     if (a.y > b.y)
     {
     return 1;

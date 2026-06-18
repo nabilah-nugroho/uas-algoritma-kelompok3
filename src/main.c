@@ -28,6 +28,9 @@ void simulasiLiteO() {
     warna(7); //balik lagi ke warna default(putih)
 }
 
+void input(){
+    printf("");
+}
 int main() {
     int pilihan;
 
