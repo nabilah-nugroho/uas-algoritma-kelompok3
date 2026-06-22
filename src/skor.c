@@ -1,6 +1,6 @@
 #include "struktur.h"
 #include <stdio.h>
-
+//testestes
 int skorTotal; 
 
 extern Hadiah daftarHadiah[]; 
