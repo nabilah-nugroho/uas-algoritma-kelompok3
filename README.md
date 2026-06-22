@@ -18,10 +18,21 @@
 Gunakan compiler C seperti `gcc`.
 
 ```powershell
-cd d:uas-algoritma-kelompok3
-gcc src\*.c -o lite-o.exe
+git clone https://github.com/nabilah-nugroho/uas-algoritma-kelompok3.git
 ```
 
 ```powershell
-.\lite-o.exe
+cd uas-algoritma-kelompok3
+```
+
+```powershell
+code .
+```
+
+```powershell
+gcc src/animasi.c src/arsip.c src/main.c src/skor.c src/sorting.c src/struktur.h src/visual.c -o LiteO
+```
+
+```powershell
+./LiteO
 ```
