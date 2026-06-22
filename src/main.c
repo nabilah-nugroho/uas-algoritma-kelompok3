@@ -3,11 +3,55 @@
 #include <string.h>
 #include "struktur.h"
 
+//definisi warna buat terminal
+#define WARNA_RESET   "\033[0m"
+#define WARNA_KUNING  "\033[1;33m"   // warna hadiah normal
+#define WARNA_HIJAU   "\033[1;32m"
+
 // Variabel global 
 Hadiah daftarHadiah[100];
 int jumlahHadiah = 0;
 int xO = 0;
 int yO = 0;
+
+// Fungsi untuk cek apakah ada di posisi hadiah
+void cekDanTandaiHadiah(int x, int y) {
+    for (int i = 0; i < jumlahHadiah; i++) {
+        if (daftarHadiah[i].x == x && daftarHadiah[i].y == y) {
+            printf(WARNA_HIJAU "Hadiah '%s' di (%d,%d) tersentuh! Skor +%d\n" WARNA_RESET,
+                   daftarHadiah[i].nama, x, y, daftarHadiah[i].skor);
+        }
+    }
+}
+
+// Fungsi untuk mencetak papan dengan hadiah
+void cetakPapanDenganHadiah(int panjang, int lebar) {
+    for (int row = 0; row < panjang; row++) {
+        for (int col = 0; col < lebar; col++) {
+            int adaHadiah = 0;
+            for (int i = 0; i < jumlahHadiah; i++) {
+                if (daftarHadiah[i].x == col && daftarHadiah[i].y == row) {
+                    adaHadiah = 1;
+                    if (xO == col && yO == row) {
+                        // O sedang di atas hadiah -> warna hijau
+                        printf(WARNA_HIJAU "H" WARNA_RESET);
+                    } else {
+                        // hadiah belum disentuh -> warna kuning
+                        printf(WARNA_KUNING "H" WARNA_RESET);
+                    }
+                    break;
+                }
+            }
+            if (!adaHadiah) {
+                if (xO == col && yO == row)
+                    printf("O");
+                else
+                    printf(".");
+            }
+        }
+        printf("\n");
+    }
+}
 
 void thadiah() {
     char jawab;
