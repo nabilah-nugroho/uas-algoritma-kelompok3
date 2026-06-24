@@ -18,3 +18,7 @@ void cekHadiah(int x, int y) {
         }
     }
 }
+
+void infoSkor(){
+    printf("\nSkor sekarang: %d\n", skorTotal);
+}
