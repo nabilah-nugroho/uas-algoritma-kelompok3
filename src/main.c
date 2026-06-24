@@ -18,15 +18,14 @@ void thadiah() {
     
     sortHadiah(daftarHadiah, jumlahHadiah);
     
-    printf("Isi hadiah saat ini:\n");
-    printf("|x |y |nama |skor |\n");
-    for (int i = 0; i < jumlahHadiah; i++) {
-        printf("|%d |%d |%s |%d |\n", 
-               daftarHadiah[i].x, 
-               daftarHadiah[i].y, 
-               daftarHadiah[i].nama, 
-               daftarHadiah[i].skor);
-    }
+    printf("| %-2s | %-2s | %-15s | %-5s |\n", "x", "y", "nama", "skor");
+for (int i = 0; i < jumlahHadiah; i++) {
+    printf("| %-2d | %-2d | %-15s | %-5d |\n", 
+           daftarHadiah[i].x, 
+           daftarHadiah[i].y, 
+           daftarHadiah[i].nama, 
+           daftarHadiah[i].skor);
+}
     
     printf("ingin mengisi: ");
     scanf(" %c", &jawab);
