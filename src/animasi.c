@@ -2,8 +2,10 @@
 #include <time.h>
 #include <stdio.h>
 #include <stdlib.h> 
+extern Hadiah daftarHadiah[];
+extern int jumlahHadiah; 
 
-// Fungsi wait tidak berubah
+// Fungsi wait tidak berubah 
 void wait(float x) {
     time_t start;
     time_t current;
