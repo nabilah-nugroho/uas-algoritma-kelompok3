@@ -15,7 +15,6 @@ void cekHadiah(int x, int y) {
             daftarHadiah[i].x = -1;
             daftarHadiah[i].y = -1;
 
-            printf("\nHadiah '%s' dimakan! Skor sekarang: %d\n", daftarHadiah[i].nama, skorTotal);
         }
     }
 }
