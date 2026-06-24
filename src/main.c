@@ -24,35 +24,6 @@ void cekDanTandaiHadiah(int x, int y) {
     }
 }
 
-// Fungsi untuk mencetak papan dengan hadiah
-void cetakPapanDenganHadiah(int panjang, int lebar) {
-    for (int row = 0; row < panjang; row++) {
-        for (int col = 0; col < lebar; col++) {
-            int adaHadiah = 0;
-            for (int i = 0; i < jumlahHadiah; i++) {
-                if (daftarHadiah[i].x == col && daftarHadiah[i].y == row) {
-                    adaHadiah = 1;
-                    if (xO == col && yO == row) {
-                        // O sedang di atas hadiah -> warna hijau
-                        printf(WARNA_HIJAU "H" WARNA_RESET);
-                    } else {
-                        // hadiah belum disentuh -> warna kuning
-                        printf(WARNA_KUNING "H" WARNA_RESET);
-                    }
-                    break;
-                }
-            }
-            if (!adaHadiah) {
-                if (xO == col && yO == row)
-                    printf("O");
-                else
-                    printf(".");
-            }
-        }
-        printf("\n");
-    }
-}
-
 void thadiah() {
     char jawab;
     int x, y, skor;
