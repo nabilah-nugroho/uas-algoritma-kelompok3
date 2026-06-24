@@ -3,11 +3,6 @@
 #include <string.h>
 #include "struktur.h"
 
-//definisi warna buat terminal
-#define WARNA_RESET   "\033[0m"
-#define WARNA_KUNING  "\033[1;33m"   // warna hadiah normal
-#define WARNA_HIJAU   "\033[1;32m"
-
 // Variabel global 
 Hadiah daftarHadiah[100];
 int jumlahHadiah = 0;
