@@ -14,16 +14,6 @@ int jumlahHadiah = 0;
 int xO = 0;
 int yO = 0;
 
-// Fungsi untuk cek apakah ada di posisi hadiah
-void cekDanTandaiHadiah(int x, int y) {
-    for (int i = 0; i < jumlahHadiah; i++) {
-        if (daftarHadiah[i].x == x && daftarHadiah[i].y == y) {
-            printf(WARNA_HIJAU "Hadiah '%s' di (%d,%d) tersentuh! Skor +%d\n" WARNA_RESET,
-                   daftarHadiah[i].nama, x, y, daftarHadiah[i].skor);
-        }
-    }
-}
-
 void thadiah() {
     char jawab;
     int x, y, skor;
