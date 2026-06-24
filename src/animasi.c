@@ -31,7 +31,9 @@ void simulasi() {
         cekHadiah(xO, yO);
 
         system("cls");
+        cekHadiah(xO, yO);   //tukerrrr
         gambarpapan(daftarHadiah, jumlahHadiah, xO, yO);
+        infoSkor();
         wait(1); 
     }
 
