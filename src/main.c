@@ -59,7 +59,7 @@ void simulasiLiteO() {
     printf("Masukkan panjang (tinggi) papan: ");
     scanf("%d", &panjangPapan);
     printf("Masukkan lebar papan: ");
-    scanf("%d", &lebarPapan);
+    scanf("%d", &lebarPapan);   
 
     bacaHadiah(daftarHadiah, &jumlahHadiah);
     
@@ -90,7 +90,7 @@ int main() {
                 break;
             case 4:
                 printf("Keluar dari program.\n");
-                break;
+                exit(0);
             default:
                 printf("Pilihan tidak valid. Silakan coba lagi.\n");
         }
