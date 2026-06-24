@@ -12,6 +12,10 @@ int panjangint(int n) {
 }
 
 void labelhadiah(char baris[], int x, const Hadiah *h, int lebardalam) {
+    char teks[100];
+    //gabungkan nama dan skor jadi satu string
+    sprintf(teks, "%s%d", h->nama, h->skor);
+
     int i = 0;
     // Tulis nama hadiah ke dalam baris dengan aman
     while (h->nama[i] != '\0' && (x + i) < lebardalam) {
