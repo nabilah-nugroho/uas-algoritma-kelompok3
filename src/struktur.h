@@ -22,4 +22,20 @@ extern int lebarPapan;      //input lebar papan dari user
 extern int xO;
 extern int yO;
 
+void bacaHadiah(Hadiah data[], int *jumlah);
+void bacaGerak(Gerak data[], int *jumlah);
+void simpanHadiah(Hadiah data[], int jumlah);
+void isiHadiah(Hadiah data[], int *jumlah);
+void isiGerak();
+
+void gambarpapan(const Hadiah hadiah[], int jumlahhadiah, int ox, int oy);
+
+void cekHadiah(int x, int y);
+void infoSkor();
+void hapusHadiahDimakan();
+
+void sortHadiah(Hadiah data[], int jumlah);
+
+void simulasi();
+
 #endif
