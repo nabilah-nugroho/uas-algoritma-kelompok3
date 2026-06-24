@@ -1,4 +1,4 @@
-#include <struktur.h>
+#include "struktur.h"
 
 int lebihBesar(Hadiah a, Hadiah b)
 {
