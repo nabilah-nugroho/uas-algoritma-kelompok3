@@ -76,43 +76,6 @@ void simpanHadiah(Hadiah data[], int jumlah) {
     fclose(fp);
 }
 
-void isiHadiah(Hadiah data[], int *jumlah) {
-    char pilihan;
-    
-    printf("\nIsi hadiah saat ini:\n");
-    printf("---------------------------\n");
-    printf("X\tY\tNama\tSkor\n");
-    printf("---------------------------\n");
-    for (int i = 0; i < *jumlah; i++) {
-        if (data[i].x != -1 && data[i].y != -1) {
-            printf("%d\t%d\t%s\t%d\n", data[i].x, data[i].y, data[i].nama, data[i].skor);
-        }
-    }
-    printf("---------------------------\n");
-
-    printf("ingin mengisi: ");
-    scanf(" %c", &pilihan);
-
-    if (pilihan == 'Y' || pilihan == 'y') {
-        int idx = *jumlah;
-        
-        printf("x: "); scanf("%d", &data[idx].x);
-        printf("y: "); scanf("%d", &data[idx].y);
-        printf("nama: "); scanf("%s", data[idx].nama);
-        printf("skor: "); scanf("%d", &data[idx].skor);
-
-        if (data[idx].x >= lebarPapan || data[idx].y >= panjangPapan || data[idx].x < 0 || data[idx].y < 0) {
-            printf("Error: Koordinat di luar batas papan!\n");
-            return;
-        }
-
-        (*jumlah)++;
-        sortHadiah(data, *jumlah);
-        simpanHadiah(data, *jumlah);
-        printf("Data berhasil disimpan!\n");
-    }
-}
-
 void isiGerak() {
     FILE *fp = fopen("data/tgerak.txt", "w");
     if (fp == NULL) {
@@ -127,11 +90,6 @@ void isiGerak() {
     for (int i = 0; i < n; i++) {
         printf("Masukkan langkah ke-%d (format: x y): ", i + 1);
         scanf("%d %d", &x, &y);
-        
-        if (x >= lebarPapan || y >= panjangPapan || x < 0 || y < 0) {
-            printf("Peringatan: Koordinat di luar batas papan!\n");
-        }
-        
         fprintf(fp, "%d %d\n", x, y);
     }
 
