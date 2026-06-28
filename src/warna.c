@@ -1,6 +1,6 @@
 #include <stdio.h>
 
-// Koleksi warna ANSI Escape
+// Ansi escape untuk warna
 #define ANSI_RESET   "\x1b[0m"
 #define ANSI_RED     "\x1b[31m"
 #define ANSI_GREEN   "\x1b[32m"
@@ -10,11 +10,11 @@
 #define ANSI_CYAN    "\x1b[36m"
 
 void cetakBerwarna(char karakter, int status) {
-    // Jika status 0, cetak normal (bukan hadiah)
+    // Jika status 0, cetak normal
     if (status == 0) {
         printf("%c ", karakter);
     } 
-    // Jika status > 0, berarti ini hadiah! Kita bedakan warna berdasarkan angka statusnya
+    // Jika status > 0 berikan warna berdasarkan angka statusnya
     else {
         switch (status % 6) {
             case 1: printf(ANSI_RED "%c " ANSI_RESET, karakter); break;
