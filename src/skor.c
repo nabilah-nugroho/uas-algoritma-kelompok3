@@ -15,7 +15,28 @@ void cekHadiah(int x, int y) {
             daftarHadiah[i].x = -1;
             daftarHadiah[i].y = -1;
 
-            printf("\nHadiah '%s' dimakan! Skor sekarang: %d\n", daftarHadiah[i].nama, skorTotal);
+            hapusHadiahDimakan();
         }
     }
+}
+
+void infoSkor(){
+    printf("\nSkor sekarang: %d\n", skorTotal);
+}
+
+void hapusHadiahDimakan() {
+    FILE *fp = fopen("data/thadiah.txt", "w");
+    if (fp == NULL) {
+        printf("Gagal membuka thadiah.txt\n");
+        return;
+    }
+
+    for (int i = 0; i < jumlahHadiah; i++) {
+        if (daftarHadiah[i].x != -1 && daftarHadiah[i].y != -1) {
+            fprintf(fp, "%d %d %s %d\n", daftarHadiah[i].x, daftarHadiah[i].y, daftarHadiah[i].nama, daftarHadiah[i].skor);
+        }
+    }
+
+    fprintf(fp, "## ## ## ##\n");
+    fclose(fp);
 }

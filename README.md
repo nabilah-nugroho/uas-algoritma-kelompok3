@@ -1,5 +1,13 @@
-## Fitur
-- 
+<p align="center">
+  <img src="assets/image.png" alt="yey" width="850"/>
+</p>
+
+## Project Management
+
+Progress pengerjaan:
+[![Project Board](https://img.shields.io/badge/Project-Board-blue?logo=github)](https://github.com/users/nabilah-nugroho/projects/3)
+
+Tracking terdapat assignee per file dan status revisi masing-masing PIC fitur 
 
 ## Struktur Proyek dan PIC
 

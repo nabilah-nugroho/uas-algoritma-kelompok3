@@ -38,4 +38,6 @@ void sortHadiah(Hadiah data[], int jumlah);
 
 void simulasi();
 
+void cetakBerwarna();
+
 #endif
