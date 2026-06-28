@@ -2,6 +2,12 @@
   <img src="assets/image.png" alt="yey" width="850"/>
 </p>
 
+## Project Management
+
+Progress pengerjaan:
+[![Project Board](https://img.shields.io/badge/Project-Board-blue?logo=github)](https://github.com/nabilah-nugroho/uas-algoritma-kelompok3/projects/1)
+Tracking terdapat assignee per file dan status revisi masing-masing PIC fitur 
+
 ## Struktur Proyek dan PIC
 
 - `src/`
