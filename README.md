@@ -19,6 +19,7 @@ Tracking terdapat assignee per file dan status revisi masing-masing PIC fitur
   - `sorting.c` — Diyar
   - `visual.c` — Nindira
   - `struktur.h` — Nabilah
+  - `warna.c`
 - `data/` — berisi file `thadiah.txt` dan `tgerak.txt` untuk input/output game
 
 ## Cara Build
