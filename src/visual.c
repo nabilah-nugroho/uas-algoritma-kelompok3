@@ -7,7 +7,7 @@ int lebarPapan   = 0;
 int panjangint(int n) {
     int digit = 1;
     if (n < 0) {n = -n; digit++;} //untuk skor hadiah dengan tanda minus
-    while (n >= 10) {n /= 10; digit++;} //selama angka lebih dari 10 buang digit terakhir dan tambah jumlah digit
+    while (n >= 10) {n /= 10; digit++;} //selama angka lebih dari 10 buang digit terakhir dan tambah jumlah digit kalo kurang dari 10
     return digit;
 }
 
@@ -17,9 +17,9 @@ void labelhadiah(char baris[], int x, const Hadiah *h, int lebardalam) {
     sprintf(teks, "%s%d", h->nama, h->skor);
 
     int i = 0;
-    // Tulis nama hadiah ke dalam baris dengan aman
-    while (h->nama[i] != '\0' && (x + i) < lebardalam) {
-        baris[x + i] = h->nama[i];
+    // tulis nama hadiah di dalam baris
+    while (teks[i] != '\0' && (x + i) < lebardalam) {
+        baris[x + i] = teks[i];
         i++;
     }
 }
@@ -34,7 +34,9 @@ void gambarpapan(const Hadiah hadiah[], int jumlahhadiah, int ox, int oy) {
     //isi papan
     for (int brs = 0; brs < panjangPapan; brs++) { //looping untuk setiap baris papan
         char baris[200];
-        for (int j = 0; j < lebardalam; j++) { //inisialisasi setiap posisi dalam baris dengan spasi
+        int statusPosisi[200] = {0}; //array penanda warna (0 = biasa, 1 = kuning)
+
+        for (int j = 0; j < lebardalam; j++) { //inisialisasi di dalam baris dengan spasi
             baris[j] = ' ';
         }
         //gambar hadiah
@@ -43,21 +45,33 @@ void gambarpapan(const Hadiah hadiah[], int jumlahhadiah, int ox, int oy) {
                 hadiah[k].x >= 0 && //cek apakah posisi x hadiah valid (tidak negatif)
                 hadiah[k].x < lebardalam) { //cek apakah posisi x hadiah valid (tidak melebihi lebar papan)
                 labelhadiah(baris, hadiah[k].x, &hadiah[k], lebardalam);
+                //hitung panjang teks gabungan nama + skor untuk menandai status warna
+                char teks[100];
+                sprintf(teks, "%s%d", hadiah[k].nama, hadiah[k].skor);
+                int pjgTeks = 0;
+                while (teks[pjgTeks] != '\0') pjgTeks++;
+
+                for (int m = 0; m < pjgTeks && (hadiah[k].x + m) < lebardalam; m++) {
+                    statusPosisi[hadiah[k].x + m] = k + 1; 
                 }
+            }
         }
 
      //gambar O
         if (oy == brs && //cek apakah posisi y O sama dengan baris yang sedang digambar
             ox >= 0 && //cek apakah posisi x O valid (tidak negatif)
             ox < lebardalam) { //cek apakah posisi x O valid (tidak melebihi lebar papan)
-            baris[ox] = 'O'; //tempatkan simbol 'O' pada posisi yang sesuai dalam baris untuk menggambarkan O
+            baris[ox] = 'O'; //simbol 'O' di posisi yang sesuai dalam baris 
+            statusPosisi[ox] = 0; //simbol O tetap warna normal
         }
         printf("|");
-        for (int j = 0; j < lebardalam; j++) { //cetak setiap karakter dalam baris yang sudah diisi dengan hadiah dan O
-            printf("%c ", baris[j]); //cetak karakter diikuti spasi untuk jarak antar karakter
+        for (int j = 0; j < lebardalam; j++) { 
+            //panggil fungsi cetak dari file struktur.h luar
+            cetakBerwarna(baris[j], statusPosisi[j]); 
         }
-        printf("|\n"); //akhir baris papan
+        printf("|\n"); // akhir baris papan
     }
+        
     //bingkai bawah
     printf("|"); 
     for (int j = 0; j < lebardalam; j++) { 
