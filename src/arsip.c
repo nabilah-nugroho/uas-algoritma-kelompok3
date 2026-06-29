@@ -40,7 +40,7 @@ void bacaGerak(Gerak data[], int *jumlah) {
     int i = 0;     
 
     while (fscanf(fp, "%s", token) != EOF) {
-        //cek sentinel: kalau nemu "##" di file tgerak.txt, loop langsung berhenti
+        //cek sentinel kalau nemu "##" di file tgerak.txt, loop langsung berhenti
         if (strcmp(token, "##") == 0) {
             break;
         }
@@ -77,15 +77,43 @@ void simpanHadiah(Hadiah data[], int jumlah) {
 }
 
 void isiGerak() {
-    FILE *fp = fopen("data/tgerak.txt", "w");
+    FILE *fp = fopen("data/tgerak.txt", "r+");
+
     if (fp == NULL) {
-        printf("Gagal membuka file tgerak.txt\n");
-        return;
+        fp = fopen("data/tgerak.txt", "w");
+        if (fp == NULL) {
+            printf("Gagal membuka file tgerak.txt\n");
+            return;
+        }
+    } else {
+        char token[20];
+        long posisiSentinel = -1;
+
+        while (1) {
+            long posisi = ftell(fp);
+
+            if (fscanf(fp, "%s", token) == EOF) {
+                break;
+            }
+
+            if (strcmp(token, "##") == 0) {
+                posisiSentinel = posisi;
+                break;
+            }
+        }
+
+        if (posisiSentinel != -1) {
+            fseek(fp, posisiSentinel, SEEK_SET);
+        } else {
+            fseek(fp, 0, SEEK_END);
+        }
     }
 
     int n, x, y;
-    printf("Berapa langkah koordinat jalan O yang mau diinput? ");
+    printf("Berapa langkah koordinat jalan O yang mau ditambahkan? ");
     scanf("%d", &n);
+
+    fprintf(fp, "\n");
 
     for (int i = 0; i < n; i++) {
         printf("Masukkan langkah ke-%d (format: x y): ", i + 1);
@@ -94,7 +122,7 @@ void isiGerak() {
     }
 
     fprintf(fp, "## ##\n");
-    fclose(fp);
-    printf("Rute langkah O berhasil disimpan!\n");
-}
 
+    fclose(fp);
+    printf("Rute langkah O berhasil ditambahkan!\n");
+}
