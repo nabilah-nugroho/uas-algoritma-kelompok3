@@ -34,11 +34,7 @@ cd uas-algoritma-kelompok3
 ```
 
 ```powershell
-code .
-```
-
-```powershell
-gcc src/animasi.c src/arsip.c src/main.c src/skor.c src/sorting.c src/struktur.h src/visual.c -o LiteO
+gcc src/animasi.c src/arsip.c src/main.c src/skor.c src/sorting.c src/struktur.h src/visual.c src/warna.c -o LiteO
 ```
 
 ```powershell
